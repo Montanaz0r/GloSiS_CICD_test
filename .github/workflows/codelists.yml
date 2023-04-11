@@ -31,6 +31,7 @@ jobs:
         pip install .
     - name: Generate codelists
       run: |
+        cd utils/transformer_tool
         python transform_to_csv.py ../../glosis_cl.ttl ../../csv_codelists/glosis_cl
         python transform_to_csv.py ../../glosis_procedure.ttl ../../csv_codelists/glosis_procedure
     - name: Commit codelists
