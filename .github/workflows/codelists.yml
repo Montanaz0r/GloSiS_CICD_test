@@ -3,6 +3,7 @@ name: CSV Codelists Auto-Generation
 on:
   push:
     branches: [ "main" ]
+    paths: [ "glosis_cl.ttl" , "glosis_procedure.ttl" ]
   pull_request:
     branches: [ "main" ]
 
