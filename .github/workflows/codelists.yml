@@ -1,4 +1,4 @@
-name: Codelists Generation
+name: CSV Codelists Auto-Generation
 
 on:
   push:
@@ -7,8 +7,9 @@ on:
     branches: [ "main" ]
 
 env:
-    CL_CODELIST: "csv_codelists/glosis_cl.csv"
-    PROC_CODELIST: "csv_codelists/glosis_procedure.csv"
+    CODELIST_DIR: "csv_codelists"
+    CL_CODELIST: "glosis_cl.csv"
+    PROC_CODELIST: "glosis_procedure.csv"
 
 jobs:
   build:
@@ -22,8 +23,8 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install dependencies
+      working-directory: utils/transformer_tool
       run: |
-        cd utils/transformer_tool
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         git clone https://github.com/Montanaz0r/pytarql.git
@@ -34,10 +35,13 @@ jobs:
       run: |
         python transform_to_csv.py ../../glosis_cl.ttl ../../csv_codelists/glosis_cl
         python transform_to_csv.py ../../glosis_procedure.ttl ../../csv_codelists/glosis_procedure
+    - name: Get current time and date
+      if: ${{ success() }}
+      run: echo "NOW=$(date)" >> $GITHUB_ENV
     - name: Commit codelists
       if: ${{ success() }}
       uses: EndBug/add-and-commit@v9
       with:
-          add: "['${{ env.CL_CODELIST }}', '${{ env.PROC_CODELIST }}']"
-          message: "codelists generated automatically"
+          add: "['${{ env.CODELIST_DIR }}/${{ env.CL_CODELIST }}', '${{ env.CODELIST_DIR }}/${{ env.PROC_CODELIST }}']"
+          message: "codelists generated automatically at ${{ env.NOW }}"
           default_author: github_actions
