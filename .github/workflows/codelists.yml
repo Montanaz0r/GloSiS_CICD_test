@@ -30,10 +30,13 @@ jobs:
         cd pytarql
         pip install .
     - name: Generate codelists
+      working-directory: utils/transformer_tool
       run: |
-        cd utils/transformer_tool
-        python transform_to_csv.py ../../glosis_cl.ttl ../../csv_codelists/glosis_cl
-        python transform_to_csv.py ../../glosis_procedure.ttl ../../csv_codelists/glosis_procedure
+        python transform_to_csv.py ${{ vars.GITHUB_ACTION_PATH }}/glosis_cl.ttl ${{ vars.GITHUB_ACTION_PATH }}/csv_codelists/glosis_cl
+      # run: |
+      #   cd utils/transformer_tool
+      #   python transform_to_csv.py ../../glosis_cl.ttl ../../csv_codelists/glosis_cl
+      #   python transform_to_csv.py ../../glosis_procedure.ttl ../../csv_codelists/glosis_procedure
     - name: Commit codelists
       if: ${{ success() }}
       uses: EndBug/add-and-commit@v9
