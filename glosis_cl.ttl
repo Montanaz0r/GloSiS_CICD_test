@@ -18,7 +18,7 @@
                       foaf:name "Raul Palma"
                     ] ,
                     [ schema:affiliation [ foaf:name "PSNC" ] ;
-                      foaf:name "Bogusz Janiak"
+                      foaf:name "Bogusz Janiakk"
                     ] ,
                     [ schema:affiliation [ foaf:name "ISRIC" ] ;
                       foaf:name "Luís Moreira de Sousa" ;
