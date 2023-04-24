@@ -6,7 +6,7 @@ on:
   #   paths: [ "glosis_cl.ttl" , "glosis_procedure.ttl" ]
   pull_request:
     branches: [ "master" ]
-    paths: [ "glosis_cl.ttl" , "glosis_procedure.ttl" ]
+    # paths: [ "glosis_cl.ttl" , "glosis_procedure.ttl" ]
 
 env:
     CODELIST_DIR: "csv_codelists"
