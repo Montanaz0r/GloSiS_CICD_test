@@ -5,7 +5,7 @@ on:
   #   branches: ["develop"]
   #   paths: [ "glosis_cl.ttl" , "glosis_procedure.ttl" ]
   pull_request:
-    branches: [ "master" ]
+    # branches: [ "master" ]
     paths: [ "glosis_cl.ttl" , "glosis_procedure.ttl" ]
 
 env:
