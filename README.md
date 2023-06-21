@@ -10,24 +10,25 @@
   - [Version Updater](#version-updater)
     - [Requirements](#requirements)
     - [Usage](#usage-1)
+- [Contribution](#contribution)
 - [Citing](#citing)
 
 
 # Info
-CHANGE OTHER CHANGE CHANGEZZZZ
+
 This repository contains the Global Soil Information System (GloSIS) v1.0 ontology network, derived from the source UML data model,
 and modelled in line with best practices and methodologies, reusing existing standard models and ontologies.
 
 # Documentation
 
 All modules in this web ontology are documented individually with HTML pages
-generated with the [WiDoco](https://github.com/dgarijo/Widoco) tool. These pages can be accessed at [https://rapw3k.github.io/glosis/docs/](https://rapw3k.github.io/glosis/docs/).
+generated with the [WiDoco](https://github.com/dgarijo/Widoco) tool. These pages can be accessed at [https://rapw3k.github.io/glosis/docs/](https://rapw3k.github.io/glosis/).
 
 Configuration files for WiDoco are generated automatically with a [bespoke
-tool](https://github.com/rapw3k/glosis/blob/glosis_doc/doc/README.md).
-Documentation pages are maintained in the [glosis_doc branch](https://github.com/rapw3k/glosis/tree/glosis_doc/doc).
+tool](https://github.com/rapw3k/glosis/blob/master/docs/README_WiDoco.md).
+Documentation pages are maintained in the [docs folder](https://github.com/rapw3k/glosis/tree/master/docs).
 
-The documentation for each module can be accessed via the [documentation entry page](https://rapw3k.github.io/glosis/docs)
+The documentation for each module can be accessed via the [documentation entry page](https://rapw3k.github.io/glosis/)
 
 # Tools
 
@@ -55,6 +56,8 @@ Script can transform in two ways:
 ```python transform_to_csv.py input.ttl```
 (this creates a csv file with corresponding filename in the location of TURTLE file)
 
+read more about the transformer-tool [HERE](https://github.com/rapw3k/glosis/wiki/UTILITY:-Transformer-Tool).
+
 ## Version Updater
 
 [Version updater](https://github.com/rapw3k/glosis/tree/master/utils/version_updater) is a simple convenience script that updates and harmonizes versions across all ontology modules.
@@ -67,6 +70,10 @@ python3
 
 *example:*    
 ```python utils/version_updater/version_updater.py 3.0.1```
+
+# Contribution
+
+One can find the current list of code lists provided as CSV files under the *csv_codelists* directory. Those code lists can be used as input to modify the ontology using the [Transformer-tool](#transformer-tool). CI/CD pipeline is taking care of maintaining the current version of code lists. That means one needs to push modifications onlt via TURTLE files and don't need to worry about updating CSV code lists alongside.
 
 # Citing
 
